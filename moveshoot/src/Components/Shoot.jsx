@@ -1,12 +1,24 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import './Shoot.css'
+import "./Shoot.css";
 const Shoot = () => {
+  const [text, setText] = useState("");
+  const [getme, setget] = useState([])
+  
+  const handleChange = (e) => {
+    setText(e.target.value)
+  }
+  const handleSearch = (move) => {
+    if (text == 1 || text == 2 || text == 3 || text == 4 || text == 5) {
+      getme.filter((item)=> item !== move)
+    }
+ }
+
   return (
-    <div>
+    <div onChange={handleChange}>
       <Container>
         <Row>
           {/* for a fisrt div */}
@@ -27,9 +39,10 @@ const Shoot = () => {
 
           <Col>
             <h6 style={{ marginRight: "700px" }}>5 circles</h6>
-            <div style={{ paddingRight: "700px" }}>
+            <div onClick={handleSearch}  style={{ paddingRight: "700px" }}>
               <Col>
                 <Row>
+                  {/* first button */}
                   <Button
                     className="shoot"
                     style={{
@@ -40,6 +53,7 @@ const Shoot = () => {
                     1
                   </Button>
                 </Row>
+                {/* second button */}
                 <Row>
                   <Button
                     className="shoot"
@@ -51,6 +65,7 @@ const Shoot = () => {
                     2
                   </Button>
                 </Row>
+                {/* third button */}
                 <Row>
                   <Button
                     className="shoot"
@@ -62,6 +77,7 @@ const Shoot = () => {
                     3
                   </Button>
                 </Row>
+                {/*fourth button */}
                 <Row>
                   <Button
                     className="shoot"
@@ -73,6 +89,7 @@ const Shoot = () => {
                     4
                   </Button>
                 </Row>
+                {/* fifth button */}
                 <Row>
                   <Button
                     className="shoot"
@@ -89,6 +106,7 @@ const Shoot = () => {
           </Col>
         </Row>
       </Container>
+      
     </div>
   );
 };
