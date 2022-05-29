@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import './Shoot.css'
+import '../App.css'
 const Shoot = () => {
  const arr = [
    { id: 1, color: Math.floor(Math.random() * 16777215).toString(16) },
